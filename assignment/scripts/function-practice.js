@@ -85,24 +85,69 @@ console.log(find(5,arr));
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  if(letter === string[0]){
+    return true;
+  }
+  return false;
 }
 console.log( 'isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( 'isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll( ) {
+function sumAll( array ) {
   let sum = 0
   // TODO: loop to add items
+  for(let i = 0; i < array.length; i++){
+    sum += array[i];
+  }
   return sum;
 }
+
+let numInArr = [2,4,6,8];
+
+console.log(sumAll(numInArr));
 
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
 
+let returnPostiveNumber = function(array){
+  
+  return array.filter(x => x > 0);
+}
+
+let numArray = [1,2,3,4,5,6,7,8,9,10];
+let negNumArray = [-1,0,-10];
+
+console.log(returnPostiveNumber(numArray));
+console.log(returnPostiveNumber(negNumArray));
 
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+
+function gooseFilter (birds) {
+  var geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
+  
+  // return an array containing all of the strings in the input array except those that match strings in geese
+  
+  let doesElementHaveGeese = false;
+  let newArray = [];
+  
+  for(let i = 0; i < birds.length; i++){
+    doesElementHaveGeese = false;
+    for( let j = 0; j < geese.length; j++){
+      if( birds[i] === geese[j]){
+        doesElementHaveGeese = true;
+      }
+    }
+    if(doesElementHaveGeese !== true){
+      newArray.push(birds[i])
+    }
+  }
+  return  newArray
+};
+
+console.log(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Toulouse", "Blue Swedish"]));
